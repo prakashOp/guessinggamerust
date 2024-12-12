@@ -1,10 +1,34 @@
-use std::io;
-use rand::Rng;
 use colored::*;
+use rand::Rng;
 use std::cmp::Ordering;
+use std::io;
 
 fn main() {
-    println!("Hello, world!");
+    println!("1 -> Play Game");
+    println!("2 -> Exit");
+
+    let mut user_choice: String = String::new();
+
+    print!("Choice -> ");
+    io::stdin()
+        .read_line(&mut user_choice)
+        .expect("Failed to Read user choise");
+
+    let user_choice: u8 = user_choice.parse().unwrap();
+
+    match user_choice {
+        1 => {
+            //calling game_logic()
+        },
+        2 => {
+            print!("Exiting Program");
+            std::process::exit(0);
+        },
+        _ => {
+            println!("Enter Wrong Choice");
+            main();
+        }
+    }
 }
 //ok
 fn random_num_gen() -> u32 {
@@ -12,6 +36,4 @@ fn random_num_gen() -> u32 {
     return randomNum;
 }
 //working
-fn game_logic() {
-    
-}
+fn game_logic() {}
